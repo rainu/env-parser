@@ -4,7 +4,7 @@ Parse environment variable names and build a single object out of them.
 
 ## Installation
 
-  npm install @rainu/env-parser --save
+  npm install rainu-env-parser --save
 
 ## Usage
 
