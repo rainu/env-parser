@@ -1,0 +1,35 @@
+{
+  "name": "@rainu/env-parser",
+  "version": "1.0.0",
+  "description": "Parse environment variable names and build a single object out of them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rainu/env-parser.git"
+  },
+  "keywords": [
+    "env",
+    "environment",
+    "parser",
+    "config",
+    "object"
+  ],
+  "author": "rainu <rainu@raysha.de> (http://github.com/rainu)",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/rainu/env-parser/blob/master/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/rainu/env-parser/issues"
+  },
+  "homepage": "https://github.com/rainu/env-parser#readme",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^5.2.0"
+  }
+}
