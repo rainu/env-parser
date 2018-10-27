@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha test --recursive"
   },
+  "bin": {
+    "env-parser": "./env-parser.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rainu/env-parser.git"
