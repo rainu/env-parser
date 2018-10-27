@@ -121,20 +121,24 @@ function mergeEnv(prefix, defaultEnv, realEnv) {
     return result;
 }
 
+/**
+ * Parse the (given) environment and return the result as object.
+ *
+ * @param prefix The prefix of env-variable-names which should be watched. DEFAULT: "CFG_"
+ * @param defaults The default values as object. DEFAULT: {}
+ * @param environment The environment. DEFAULT: process.env
+ */
+const parse = function (prefix = "CFG_", defaults = {}, environment = process.env) {
+    const emulatedEnv = generateFromObject(prefix, defaults);
+    const mergedEnc = mergeEnv(prefix, emulatedEnv, environment);
+    const result = generateFromEnv(prefix, mergedEnc);
+
+    return result;
+}
 module.exports = {
 
-    /**
-     * Parse the (given) environment and return the result as object.
-     *
-     * @param prefix The prefix of env-variable-names which should be watched. DEFAULT: "CFG_"
-     * @param defaults The default values as object. DEFAULT: {}
-     * @param environment The environment. DEFAULT: process.env
-     */
-    parse: function (prefix = "CFG_", defaults = {}, environment = process.env) {
-        const emulatedEnv = generateFromObject(prefix, defaults);
-        const mergedEnc = mergeEnv(prefix, emulatedEnv, environment);
-        const result = generateFromEnv(prefix, mergedEnc);
-
-        return result;
-    }
+    parseParams: function ({prefix, defaults, environment}) {
+        return parse(prefix, defaults, environment)
+    },
+    parse
 };
