@@ -13,8 +13,6 @@ describe('Environment parsing with defaults and Params Object', () => {
             environment: env
         });
 
-        console.log("RESULT IS2qqq3 ", result)
-
         assert.equal(result.flat, "flat");
     });
 
@@ -27,8 +25,6 @@ describe('Environment parsing with defaults and Params Object', () => {
             defaults: {},
             environment: env
         });
-
-        console.log("RESULT IS2qqq3 ", result)
 
         assert.equal(result.flat, "flat");
     });
