@@ -32,7 +32,10 @@
   },
   "homepage": "https://github.com/rainu/env-parser#readme",
   "devDependencies": {
-    "assert": "^1.4.1",
-    "mocha": "^5.2.0"
+    "assert": "1.4.1",
+    "mocha": "5.2.0"
+  },
+  "dependencies": {
+    "yargs": "12.0.2"
   }
 }
