@@ -3,6 +3,21 @@ const toTest = require('../index');
 
 describe('Environment parsing with defaults and Params Object', () => {
 
+    it('Config', () => {
+        let env = {
+            "TEST_FLAT": "flat",
+        };
+        let result = toTest.parseParams({
+            prefix: "TEST_",
+            defaults: {},
+            environment: env
+        });
+
+        console.log("RESULT IS2qqq3 ", result)
+
+        assert.equal(result.flat, "flat");
+    });
+
     it('Flat', () => {
         let env = {
             "CFG_FLAT": "flat",
@@ -13,7 +28,7 @@ describe('Environment parsing with defaults and Params Object', () => {
             environment: env
         });
 
-        console.log("RESULT IS2qqq3 ",result )
+        console.log("RESULT IS2qqq3 ", result)
 
         assert.equal(result.flat, "flat");
     });
@@ -127,7 +142,6 @@ describe('Environment parsing with custom default', () => {
             defaults: defaults,
             environment: env
         });
-
 
         assert.equal(result.flat, "flat");
         assert.equal(result.other, "custom");

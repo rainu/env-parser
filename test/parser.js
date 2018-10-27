@@ -3,13 +3,20 @@ const toTest = require('../index');
 
 describe('Environment parsing with defaults', () => {
 
+    it('Config', () => {
+        let env = {
+            "TEST_FLAT": "flat",
+        };
+        let result = toTest.parse("TEST_", {}, env);
+
+        assert.equal(result.flat, "flat");
+    });
+
     it('Flat', () => {
         let env = {
             "CFG_FLAT": "flat",
         };
         let result = toTest.parse("CFG_", {}, env);
-
-        console.log("RESULT IS2xx3 ",result )
 
         assert.equal(result.flat, "flat");
     });
@@ -20,7 +27,6 @@ describe('Environment parsing with defaults', () => {
             "CFG_STRING_0_VALUE": "value",
         };
         let result = toTest.parse("CFG_", {}, env);
-        console.log("RESULT IS ", result)
         assert.equal(result.string, "aastring");
     });
 
