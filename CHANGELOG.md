@@ -1,6 +1,6 @@
 # Changelog
 
-2018-10-21 [unrelease]
+2018-11-01 [1.1.0]
   - handling of parse errors
  
 2018 [1.0.0]
