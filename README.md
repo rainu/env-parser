@@ -8,12 +8,14 @@ Parse environment variable names and build a single object out of them.
 
 ## Usage
 
-  let defaultValues = {
-     port: 1312
-  }
-  let config = parse("CFG_", defaultValues)
-  
-  console.log(config)
+```javascript
+let defaultValues = {
+   port: 1312
+}
+let config = parse("CFG_", defaultValues)
+
+console.log(config)
+```
 
 ## Tests
 
