@@ -1,6 +1,6 @@
 {
   "name": "rainu-env-parser",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Parse environment variable names and build a single object out of them.",
   "main": "index.js",
   "scripts": {
