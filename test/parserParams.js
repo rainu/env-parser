@@ -1,13 +1,17 @@
 const assert = require('assert');
 const toTest = require('../index');
 
-describe('Environment parsing with defaults', () => {
+describe('Environment parsing with defaults and Params Object', () => {
 
     it('Config', () => {
         let env = {
             "TEST_FLAT": "flat",
         };
-        let result = toTest.parse("TEST_", {}, env);
+        let result = toTest.parseParams({
+            prefix: "TEST_",
+            defaults: {},
+            environment: env
+        });
 
         assert.equal(result.flat, "flat");
     });
@@ -16,7 +20,11 @@ describe('Environment parsing with defaults', () => {
         let env = {
             "CFG_FLAT": "flat",
         };
-        let result = toTest.parse("CFG_", {}, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: {},
+            environment: env
+        });
 
         assert.equal(result.flat, "flat");
     });
@@ -26,7 +34,12 @@ describe('Environment parsing with defaults', () => {
             "CFG_STRING": "aastring",
             "CFG_STRING_0_VALUE": "value",
         };
-        let result = toTest.parse("CFG_", {}, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: {},
+            environment: env
+        });
+
         assert.equal(result.string, "aastring");
     });
 
@@ -35,7 +48,11 @@ describe('Environment parsing with defaults', () => {
             "CFG_ARRAY_0": "array0",
             "CFG_ARRAY_1": "array1",
         };
-        let result = toTest.parse("CFG_", {}, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: {},
+            environment: env
+        });
 
         assert.equal(result.array[0], "array0");
         assert.equal(result.array[1], "array1");
@@ -46,7 +63,11 @@ describe('Environment parsing with defaults', () => {
             "CFG_NESTED_KEY": "key",
             "CFG_NESTED_VALUE": "value",
         };
-        let result = toTest.parse("CFG_", {}, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: {},
+            environment: env
+        });
 
         assert.equal(result.nested.key, "key");
         assert.equal(result.nested.value, "value");
@@ -57,7 +78,11 @@ describe('Environment parsing with defaults', () => {
             "CFG_NESTED_CHILD_KEY": "key",
             "CFG_NESTED_CHILD_VALUE": "value",
         };
-        let result = toTest.parse("CFG_", {}, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: {},
+            environment: env
+        });
 
         assert.equal(result.nested.child.key, "key");
         assert.equal(result.nested.child.value, "value");
@@ -70,7 +95,11 @@ describe('Environment parsing with defaults', () => {
             "CFG_ARRAY_1_KEY": "key1",
             "CFG_ARRAY_1_VALUE": "value1",
         };
-        let result = toTest.parse("CFG_", {}, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: {},
+            environment: env
+        });
 
         assert.equal(result.array[0].key, "key0");
         assert.equal(result.array[0].value, "value0");
@@ -83,7 +112,11 @@ describe('Environment parsing with defaults', () => {
             "CFG_ARRAY_0_KEY_0_NAME": "key0Name0",
             "CFG_ARRAY_0_KEY_1_NAME": "key0Name1",
         };
-        let result = toTest.parse("CFG_", {}, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: {},
+            environment: env
+        });
 
         assert.equal(result.array[0].key[0].name, "key0Name0");
         assert.equal(result.array[0].key[1].name, "key0Name1");
@@ -100,7 +133,11 @@ describe('Environment parsing with custom default', () => {
             flat: 'custom',
             other: 'custom'
         };
-        let result = toTest.parse("CFG_", defaults, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: defaults,
+            environment: env
+        });
 
         assert.equal(result.flat, "flat");
         assert.equal(result.other, "custom");
@@ -114,7 +151,11 @@ describe('Environment parsing with custom default', () => {
             array: ['custom']
         };
 
-        let result = toTest.parse("CFG_", defaults, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: defaults,
+            environment: env
+        });
 
         assert.equal(result.array[0], "custom");
         assert.equal(result.array[1], "array1");
@@ -131,7 +172,11 @@ describe('Environment parsing with custom default', () => {
             }
         };
 
-        let result = toTest.parse("CFG_", defaults, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: defaults,
+            environment: env
+        });
 
         assert.equal(result.nested.name, "name0");
         assert.equal(result.nested.value, "value0");
@@ -149,7 +194,11 @@ describe('Environment parsing with custom default', () => {
             }
         };
 
-        let result = toTest.parse("CFG_", defaults, env);
+        let result = toTest.parseParams({
+            prefix: "CFG_",
+            defaults: defaults,
+            environment: env
+        });
 
         assert.equal(result.nested.name, "name0");
         assert.equal(result.nested.values[0], "value0");

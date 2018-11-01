@@ -4,7 +4,11 @@
   "description": "Parse environment variable names and build a single object out of them.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test --recursive"
+    "test": "mocha test --recursive",
+    "lint": "lint"
+  },
+  "bin": {
+    "env-parser": "./env-parser.js"
   },
   "repository": {
     "type": "git",
@@ -29,7 +33,10 @@
   },
   "homepage": "https://github.com/rainu/env-parser#readme",
   "devDependencies": {
-    "assert": "^1.4.1",
-    "mocha": "^5.2.0"
+    "assert": "1.4.1",
+    "mocha": "5.2.0"
+  },
+  "dependencies": {
+    "yargs": "12.0.2"
   }
 }
